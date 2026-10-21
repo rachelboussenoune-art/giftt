@@ -1,0 +1,595 @@
+
+/* 1. Basic page setup */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, serif;
+    color: #f5f0ff;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #202b55 0%,
+            #10172f 45%,
+            #050814 100%
+        );
+}
+
+/* 2. Center the welcome screen */
+.welcome {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 30px;
+}
+
+/* 3. Small introductory text */
+.little-text {
+    color: #c2b6f5;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* 4. Main heading */
+h1 {
+    font-size: clamp(36px, 7vw, 68px);
+    margin: 15px 0;
+    color: #ffffff;
+
+    text-shadow: 0 0 25px #7777ff88;
+}
+
+/* 5. Romantic message */
+.message {
+    max-width: 460px;
+    line-height: 1.8;
+    font-size: 18px;
+    color: #d4d8f0;
+}
+
+/* 6. Interactive button */
+button {
+    margin-top: 25px;
+    padding: 15px 28px;
+
+    border: 1px solid #a8a5ff;
+    border-radius: 30px;
+
+    background: #ffffff10;
+    color: white;
+
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #7777ff44;
+    box-shadow: 0 0 25px #7777ff66;
+    transform: translateY(-3px);
+}
+
+/* The layer that covers the night sky */
+.star-layer {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Two groups of stars */
+.star-layer::before,
+.star-layer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: white;
+
+    box-shadow:
+        50px 80px white,
+        120px 220px #b9c7ff,
+        210px 100px white,
+        300px 350px #d9d4ff,
+        400px 170px white,
+        500px 450px #b9c7ff,
+        620px 90px white,
+        720px 300px #d9d4ff,
+        830px 150px white,
+        950px 380px #b9c7ff,
+        1050px 100px white,
+        1150px 250px #d9d4ff;
+    
+    animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+.star-layer::after {
+    transform: translate(35px, 25px);
+    opacity: 0.5;
+    animation-delay: 2s;
+}
+
+/* Make the stars gently brighten and fade */
+@keyframes twinkle {
+    from {
+        opacity: 0.25;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* The shooting star */
+.shooting-star {
+    position: fixed;
+    top: 15%;
+    left: -150px;
+    width: 110px;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffffff,
+        #b9c7ff
+    );
+
+    box-shadow: 0 0 12px #b9c7ff;
+    transform: rotate(-25deg);
+    pointer-events: none;
+    z-index: 0;
+
+    animation: shooting 7s ease-in-out infinite;
+}
+
+@keyframes shooting {
+    0%, 70% {
+        left: -150px;
+        top: 15%;
+        opacity: 0;
+    }
+
+    73% {
+        opacity: 1;
+    }
+
+    90% {
+        left: 110%;
+        top: 55%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 110%;
+        opacity: 0;
+    }
+}
+
+/* Keep the content above the stars */
+.welcome {
+    position: relative;
+    z-index: 1;
+}
+
+.password-screen {
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 30px;
+}
+
+.password-screen[hidden] {
+    display: none;
+}
+
+.password-screen h2 {
+    font-size: clamp(28px, 5vw, 44px);
+    color: white;
+    text-shadow: 0 0 20px #7777ff88;
+}
+
+#password-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+#birthday-input {
+    width: min(280px, 80vw);
+    padding: 14px 18px;
+
+    border: 1px solid #a8a5ff;
+    border-radius: 12px;
+
+    background: #ffffff10;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+#birthday-input::placeholder {
+    color: #b8b8d0;
+}
+
+#birthday-input:focus {
+    outline: 2px solid #b9c7ff;
+    outline-offset: 4px;
+}
+
+#password-message {
+    min-height: 24px;
+    color: #d4d8f0;
+}
+.welcome[hidden] {
+    display: none;
+}.welcome[hidden] {
+    display: none;
+}
+
+.letter-screen[hidden],
+.password-screen[hidden],
+.welcome[hidden] {
+    display: none !important;
+}
+
+.letter-screen {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding: 60px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.letter-screen h2 {
+    max-width: 650px;
+    color: #ffffff;
+    text-shadow: 0 0 20px #7777ff88;
+}
+
+.letter {
+    width: min(600px, 100%);
+    margin-top: 25px;
+    padding: 30px;
+
+    border: 1px solid #a8a5ff66;
+    border-radius: 18px;
+
+    background: #ffffff0b;
+    box-shadow: 0 0 40px #7777ff15;
+
+    text-align: left;
+    line-height: 1.9;
+    color: #e0e4ff;
+}
+/* ✨ Magic effects ✨ */
+
+/* Sparkle trail */
+.sparkle {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffffff 0%, #b9c7ff 50%, transparent 70%);
+    box-shadow: 0 0 10px #b9c7ff;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    animation: sparkleFade 0.9s ease-out forwards;
+}
+
+@keyframes sparkleFade {
+    from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    to   { opacity: 0; transform: translate(-50%, -20%) scale(0.2); }
+}
+
+/* Burst particles (tap / unlock / wish) */
+.particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    animation: burst 1.4s ease-out forwards;
+}
+
+@keyframes burst {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.6);
+    }
+    to {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.3);
+    }
+}
+
+/* Falling hearts and stars */
+.falling {
+    position: fixed;
+    top: -40px;
+    pointer-events: none;
+    z-index: 9998;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.7;
+    }
+}
+
+/* Letter appears line by line */
+.letter.armed p {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.letter.armed p.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Wish button + message */
+#wish-button {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease, transform 0.3s ease;
+}
+
+#wish-button.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#wish-message {
+    max-width: 460px;
+    min-height: 28px;
+    margin-top: 18px;
+    line-height: 1.7;
+    color: #d4d8f0;
+    text-shadow: 0 0 15px #7777ff88;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sparkle, .particle, .falling { display: none; }
+}
+/* 🕯️ Candle made of words */
+.candle-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 70px;
+    animation: fadeIn 1.5s ease both;
+}
+
+.candle {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.candle-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.candle-word {
+    opacity: 0;
+    transition: opacity 0.9s ease;
+    font-size: clamp(10px, 2.8vw, 13px);
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+.candle.show .candle-word {
+    opacity: 1;
+}
+
+/* Colors */
+.candle-body .candle-word {
+    color: #fbe6ee;
+    text-shadow: 0 0 6px #ff9dc866;
+}
+
+.candle-base .candle-word {
+    color: #c2b6f5;
+}
+
+.candle-flame {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.candle-flame .candle-word {
+    color: #ffd27a;
+    text-shadow: 0 0 8px #ff9d3c, 0 0 18px #ff7a1a;
+}
+
+/* Flame flickers */
+.candle.show .candle-flame .candle-word {
+    animation: flicker 1.3s ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+    from {
+        transform: translateY(0) scale(1);
+        text-shadow: 0 0 8px #ff9d3c, 0 0 18px #ff7a1a;
+    }
+    to {
+        transform: translateY(-1px) scale(1.06);
+        text-shadow: 0 0 12px #ffb347, 0 0 26px #ff8c1a;
+    }
+}
+
+/* Wick */
+.candle-wick {
+    width: 2px;
+    height: 14px;
+    background: #8a7a95;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.candle.show .candle-wick {
+    opacity: 1;
+}
+
+/* Warm glow behind the flame */
+.candle-glow {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    width: 240px;
+    height: 240px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle,
+        rgba(255, 190, 90, 0.35) 0%,
+        rgba(255, 150, 60, 0.12) 40%,
+        transparent 70%);
+    opacity: 0;
+    transition: opacity 2s ease;
+    pointer-events: none;
+    animation: glowPulse 2.5s ease-in-out infinite alternate;
+}
+
+.candle.show .candle-glow {
+    opacity: 1;
+}
+
+@keyframes glowPulse {
+    from { transform: translateX(-50%) scale(0.92); }
+    to   { transform: translateX(-50%) scale(1.08); }
+}
+
+/* The candle goes out */
+.candle.show.out .candle-flame .candle-word {
+    opacity: 0;
+    animation: none;
+    transition-duration: 0.5s;
+    transition-delay: 0ms !important;
+}
+
+.candle.show.out .candle-glow {
+    opacity: 0;
+    transition-duration: 1s;
+    transition-delay: 0ms !important;
+}
+
+/* Smoke */
+.candle-smoke {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    width: 0;
+    height: 0;
+}
+
+.smoke {
+    position: absolute;
+    top: 0;
+    left: -13px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffffff66, transparent 70%);
+    filter: blur(4px);
+    opacity: 0;
+    animation: smokeRise 2.6s ease-out forwards;
+}
+
+@keyframes smokeRise {
+    from { opacity: 0.8; transform: translate(0, 0) scale(0.6); }
+    to   { opacity: 0; transform: translate(var(--sx, 0px), -120px) scale(2.2); }
+}
+
+/* Text, button and final photo */
+#candle-text {
+    min-height: 28px;
+    margin-top: 30px;
+    max-width: 460px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #d4d8f0;
+    text-shadow: 0 0 15px #7777ff88;
+    animation: fadeIn 1s ease;
+}
+
+#blow-button {
+    animation: fadeIn 1s ease;
+}
+
+.final-photo {
+    width: min(280px, 85vw);
+    margin: 40px auto 0;
+}
+[hidden] {
+    display: none !important;
+}
+/* 📸 Photo surprise */
+.final-photo {
+    padding: 12px 12px 8px;
+    background: #f8f5ff;
+    border-radius: 6px;
+    box-shadow: 0 10px 35px #00000088, 0 0 30px #7777ff33;
+
+    opacity: 0;
+    transform: translateY(30px) rotate(0deg);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.final-photo.show {
+    opacity: 1;
+    transform: translateY(0) rotate(-2deg);
+}
+
+.final-photo img {
+    display: block;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.final-photo figcaption {
+    padding: 10px 4px 4px;
+    color: #2a2250;
+    font-size: 15px;
+    text-align: center;
+}

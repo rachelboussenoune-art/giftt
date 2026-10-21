@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Handsome Baby ❤️</title>
+    <link rel="stylesheet" href="gift.css">
+</head>
+
+<body>
+    <div class="star-layer" aria-hidden="true"></div>
+    <div class="shooting-star" aria-hidden="true"></div>
+
+    <main class="welcome" id="welcome-screen">
+        <p class="little-text">A little universe, just for you</p>
+        <h1>My Handsome Baby</h1>
+        <p class="message">
+            Even when miles separate us,
+            you will always have a place in my universe.
+        </p>
+        <button id="open-button">Enter My Universe ✨</button>
+    </main>
+
+    <section class="password-screen" id="password-screen" hidden>
+        <p class="little-text">A little secret, just for you</p>
+        <h2>Your birthday is the key 🌙</h2>
+        <p class="message">
+            Some things are meant for your eyes only.
+            Enter your birthday to open my letter.
+        </p>
+
+        <form id="password-form">
+            <label for="birthday-input">When were you born, my love?</label>
+            <input type="text" id="birthday-input" placeholder="DD/MM/YYYY"
+                   inputmode="numeric" autocomplete="off" required>
+            <button type="submit">Unlock my letter ❤️</button>
+        </form>
+
+        <p id="password-message" aria-live="polite"></p>
+    </section>
+
+    <section id="letter-screen" class="letter-screen" hidden>
+        <p class="little-text">A little universe, just for you</p>
+        <h2>My letter to you ❤️</h2>
+
+        <article class="letter">
+            <p>My handsome baby,</p>
+            <p>
+                happy birthdayyyyy to you my handsome babyyyyy, I hope you have the best birthday ever and that 
+                all your wishes come true.... I love you so much and I am so grateful to have you in my life
+                You are the most amazing person I have ever met and I am so lucky to call you mine
+                i just want u to know that you are loved nd appreciated more than words can express
+                nd that those past 9 months have been the best months of my life 
+                I love you more than anything in this world and I can't wait to spend all the birthdays forevaa togethaaaa
+                im so proud of you and all that you have accomplished and I know that you will continue to do great things in the future 
+                ill always be here to support you and cheer you on every step of the way
+
+                Even though miles separate us,
+                you are always close to my heart
+                I made this little universe just for you myyyy handsome babyyyyyyyyy 
+                mwaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah
+                nhabek bezaaaaaaf a ziin dyali 
+            </p>
+            <p>
+                No distance could make you less special to me.
+                This is our little corner of the universe.
+            </p>
+            <p>Forever yours ❤️</p>
+        </article>
+
+        <div class="candle-section" id="candle-section" hidden>
+            <div class="candle" id="candle"></div>
+
+            <p id="candle-text" aria-live="polite"></p>
+            <button id="blow-button" hidden>Blow out the candle 💨</button>
+
+            <figure class="polaroid final-photo" id="final-photo" hidden>
+                <img src="images/surprise.jpg" alt="Surprise">
+                <figcaption>Happy birthday, my love ❤️</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <script src="gift.js"></script>
+</body>
+</html>
